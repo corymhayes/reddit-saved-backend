@@ -7,7 +7,10 @@ const BodyParser = require('koa-bodyparser')
 const snoowrap = require('snoowrap');
 const ObjectId = require('mongodb').ObjectID
 
-const PORT = process.env.PORT || 8000
+let port = process.env.PORT;
+if(port === 'null' || port === ""){
+  port = 8000
+}
 
 
 const app = new Koa();
